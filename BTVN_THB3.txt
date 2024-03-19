@@ -1,0 +1,37 @@
+﻿USE QL_KHACHSAN
+ TẠO STORE PROCEDURE
+1. Tạo Procedure tìm phòng theo loại phòng. Tham số truyền là loại
+phòng, nếu loại phòng không truyền vào thì hiển thị tất cả các phòng,
+không tìm thấy hoặc sai dữ liệu thì có thì hiển thị thông báo.
+2. Tạo Procedure tìm hóa đơn theo năm. Tham số truyền là năm, nếu năm
+không truyền vào thì hiển thị tất cả hóa đơn, không tìm thấy hoặc sai
+dữ liệu thì có thì hiển thị thông báo. Thông tin hiển thị gồm MAHD,
+NGAYLAP, TENNV.
+
+3. Tạo Procedure thanh toán tiền phòng cho khách theo từng hóa đơn.
+Thông tin hiển thị: MAHD, NGAYLAP, TENKH, MAPHONG, LOAIPHONG,
+TANG,SONGAY,GIAPHONG, KHUYENMAI, THANHTIEN = SONGAY *
+GIAPHONG - KHUYENMAI.
+Tiền KHUYENMAI được tính như sau:
++ Nếu thuê trên 2 tuần thì giảm 10% của SONGAY*GIAPHONG
++ Nếu thuê trên 1 tuần thì giảm 5% của SONGAY*GIAPHONG
++ Ngược lại thì không khuyến mãi.
+
+4. Tạo Procedure thống kê doanh thu theo từng táng của các năm. Thông
+tin hiển thị: THANG, NAM, DOANHTHU (doanh thu là tổng số tiền thuê
+phòng tính được trong chi tiết hóa đơn)
+5. Tạo Procedure tìm phòng có số lần thuê nhiều lần nhất. Thông tin hiển
+thị gồm: MAPHONG, LOAIPHONG, TANG, SOLANTHUE.
+6. Tạo Procedure thống kê số khách trong và ngoài nước thuê phòng theo
+từng phòng. Thông tin hiển thị: MAPHONG, LOAIPHONG, SỐ KHÁCH
+TRONG NƯỚC, SỐ KHÁCH NƯỚC NGOÀI.
+
+ TẠO FUNCTION
+7. Tạo Function tính doanh thu của từng phòng. Tham số là MAPHONG,
+nếu phòng chưa cho thuê thì trả về 0. Kiểm tra lại kết quả bằng COMPUTE.
+8. Tạo Function tính số lượng hóa đơn được lập bởi nhân viên. Tham số là
+MANV, nếu nhân viên chưa lập hóa đơn thì trả về 0. Kiểm tra lại kết quả
+bằng COMPUTE.
+9. Tạo Function tính trị giá của từng hóa đơn. Sau đó cập nhật tổng trị giá
+của từng hóa đơn vào Table HOADON.
+10. Tạo Function tính tiền phòng cho khách. Tham số là MAKH.
